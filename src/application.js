@@ -232,6 +232,27 @@ function getDataFromFile() {
     xmlhttp.send();
 }
 
+function createResultTable(data) {
+    let table = `<table class="table table-hover table-responsive">
+    <tr>
+    <td>Average P</td>
+    <td>Time</td>
+    <td>Koef</td>
+    </tr>`;
+
+    data.forEach(function (item) {
+        table += `<tr>
+            <td>${item.average_p}</td>
+            <td>${item.time}</td>
+            <td>${item.koef}</td>
+        </tr>`;
+    });
+
+    table += '</table>';
+
+    document.querySelector('.result-table').innerHTML = table;
+}
+
 /**
  * Експеримент
  */
@@ -272,6 +293,8 @@ function experiment() {
                     }
 
                     data['summary'] += p;
+                    data['time'] = app.times[i];
+                    data['koef'] = app.clientKoef[j];
                     data['items'].push(p);
 
                     if (k === maxExperiments - 1) {
@@ -287,6 +310,7 @@ function experiment() {
                         if (app.type === 'generate') {
                             createExampleData(visualize);
                         } else {
+                            createResultTable(visualize);
                             createChart('times', app.times, transformData(visualize));
                             createChart('koef', app.clientKoef, transformData(visualize));
                             document.querySelector('.status').innerHTML = 'Current status <strong>finished<strong>';
