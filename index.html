@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Modeling systems</title>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="c3/c3.min.css">
+
+  </head>
+  <body>
+  <div class="container">
+      <div class="row">
+
+          <div class="col-md-6">
+              <h1>Demonstration</h1>
+              <button type="submit" class="btn btn-default run-demo">See</button>
+              <div class="row">
+                  <div id="demo-times"></div>
+              </div>
+              <div class="row">
+                  <div id="demo-koef"></div>
+              </div>
+          </div>
+
+          <div class="col-md-6">
+              <h1>Experiment</h1>
+
+              <div class="row">
+                  <div class="form-group">
+                      <label for="places">Count places</label>
+                      <input type="number" min="0" required class="form-control place" id="places">
+                  </div>
+                  <div class="form-group">
+                      <label for="count-exp">Count experiments (Desirable max. 10, otherwise the browser goes to rest)</label>
+                      <input type="number" min="0" required class="form-control count-exp" id="count-exp">
+                  </div>
+                  <button type="submit" class="btn btn-default run-exp">Submit</button>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-md-12">
+                      <p class="alert alert-info status">Current status: <strong>waiting</strong> </p>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div id="times"></div>
+              </div>
+              <div class="row">
+                  <div id="koef"></div>
+              </div>
+
+          </div>
+
+
+      </div>
+
+      <div class="row">
+          <div class="col-md-offset-1">
+              By <a class="author" href="https://vk.com/jashka.soft">Andrey Jakovenko</a>
+              & <a class="author" href="https://vk.com/hop_hey_lalai_lai">Саня Михайліченко</a>
+          </div>
+      </div>
+  </div>
+
+  <script src="node_modules/d3/d3.min.js"></script>
+  <script src="c3/c3.min.js"></script>
+  <script src="src/application.js"></script>
+
+  </body>
+
+</html>
